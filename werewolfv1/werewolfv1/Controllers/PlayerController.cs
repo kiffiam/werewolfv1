@@ -4,90 +4,45 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using werewolfv1.Models;
 
 namespace werewolfv1.Controllers
 {
-    public class PlayerController : Controller
+    [Route("[controller]")]
+    [ApiController]
+    public class PlayerController : ControllerBase
     {
-        // GET: Player
-        public ActionResult Index()
+        // GET: api/Player
+        [HttpGet]
+        public IEnumerable<string> Get()
         {
-            return View();
+            return new string[] { "value1", "value2" };
         }
 
-        // GET: Player/Details/5
-        public ActionResult Details(int id)
+        // GET: api/Player/5
+        [HttpGet("{id}")]
+        public Player Get(int id)
         {
-            return View();
+            DummyThings dummy = new DummyThings();
+            return dummy.Players[id];
         }
 
-        // GET: Player/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Player/Create
+        // POST: api/Player
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public void Post([FromBody] string value)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
 
-        // GET: Player/Edit/5
-        public ActionResult Edit(int id)
+        // PUT: api/Player/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
         {
-            return View();
         }
 
-        // POST: Player/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Player/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Player/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

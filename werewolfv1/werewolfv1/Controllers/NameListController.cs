@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,9 @@ namespace werewolfv1.Controllers
     {
         private static readonly string[] Roles = new[]
         {
-            "WereWolf", "Villager", "Witch"
+            "WereWolf", "Villager", "Witch", "Oracle"
         };
-  
+
         private readonly ILogger<NameListController> _logger;
 
         public NameListController(ILogger<NameListController> logger)
@@ -27,16 +28,10 @@ namespace werewolfv1.Controllers
         [HttpGet]
         public IEnumerable<Player> Get()
         {
+            DummyThings dummyThings = new DummyThings();
             var rng = new Random();
             int i = 0;
-            return Enumerable.Range(1, 5).Select(index => new Player
-            {
-                Id = i,
-                Name = "Laci" + i++,
-                Alive = true,
-                RoleString = Roles[rng.Next(Roles.Length)]
-            })
-            .ToArray();
+            return dummyThings.Players.ToArray();
         }
     }
 }

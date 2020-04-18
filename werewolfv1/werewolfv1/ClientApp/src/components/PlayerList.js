@@ -16,6 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var PlayersStore = require("../store/Players");
+var react_router_dom_1 = require("react-router-dom");
 var PlayerList = /** @class */ (function (_super) {
     __extends(PlayerList, _super);
     function PlayerList() {
@@ -29,16 +30,31 @@ var PlayerList = /** @class */ (function (_super) {
     PlayerList.prototype.componentDidUpdate = function () {
         //this.ensureDataFetched();
     };
+    /*public render() {
+        return (
+            <React.Fragment>
+                <table className='table table-striped' aria-labelledby="tabelLabel">
+                    <tbody>
+                        {this.props.players.map((player: PlayersStore.Player) =>
+                            <tr key={player.id}>
+                                <td>{player.id}</td>
+                                <td>{player.name}</td>
+                                <td>{player.roleString}</td>
+                                <td>{String(player.alive)}</td>
+
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </React.Fragment>
+        );
+        
+    }*/
     PlayerList.prototype.render = function () {
-        return (React.createElement(React.Fragment, null,
-            React.createElement("table", { className: 'table table-striped', "aria-labelledby": "tabelLabel" },
-                React.createElement("tbody", null, this.props.players.map(function (player) {
-                    return React.createElement("tr", { key: player.id },
-                        React.createElement("td", null, player.id),
-                        React.createElement("td", null, player.name),
-                        React.createElement("td", null, player.roleString),
-                        React.createElement("td", null, String(player.alive)));
-                })))));
+        return (React.createElement(React.Fragment, null, this.props.players.map(function (player) {
+            return React.createElement(react_router_dom_1.Link, { key: player.id, to: 'player/' + player.id },
+                React.createElement("button", { className: "btn btn-secondary btn-sm m-2" }, player.name));
+        })));
     };
     PlayerList.prototype.ensureDataFetched = function () {
         this.props.requestPlayers();

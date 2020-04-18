@@ -23,12 +23,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\components\PlayerIdentity.tsx" />
     <None Remove="ClientApp\src\components\PlayerList.tsx" />
+    <None Remove="ClientApp\src\store\Player.ts" />
     <None Remove="ClientApp\src\store\Players.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\components\PlayerIdentity.tsx" />
     <TypeScriptCompile Include="ClientApp\src\components\PlayerList.tsx" />
+    <TypeScriptCompile Include="ClientApp\src\store\Player.ts" />
     <TypeScriptCompile Include="ClientApp\src\store\Players.ts" />
   </ItemGroup>
 
