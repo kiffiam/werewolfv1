@@ -9,8 +9,8 @@ namespace werewolfv1.Models
     {
         public void NightAction()
         {
-            SavePlayer(PlayerAboutToDie);
-            KillPlayer(PlayerToKill);
+            //SavePlayer(PlayerAboutToDie);
+            //KillPlayer(PlayerToKill);
         }
 
         private void SavePlayer(Player player)

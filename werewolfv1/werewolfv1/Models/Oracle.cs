@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 
 namespace werewolfv1.Models
 {
-    public class Villager
+    public class Oracle : Villager, INightRole
     {
-        public Player DayVote()
+        public void NightAction()
         {
-            Player clickedPlayer = new Player();
-            return clickedPlayer;
+            
         }
     }
 }
