@@ -50,9 +50,25 @@ var PlayerList = /** @class */ (function (_super) {
         );
         
     }*/
+    /*public render() {
+        return (
+            <React.Fragment>
+                {this.props.players.map((player: PlayersStore.Player) =>
+                    <Link key={player.id} to={'player/' + player.id}>
+                    <button
+                        className="btn btn-secondary btn-sm m-2"
+                        >
+                        {player.name}
+                        </button>
+                    </Link>
+                    )}
+            </React.Fragment>
+        );
+
+    }*/
     PlayerList.prototype.render = function () {
         return (React.createElement(React.Fragment, null, this.props.players.map(function (player) {
-            return React.createElement(react_router_dom_1.Link, { key: player.id, to: 'player/' + player.id },
+            return React.createElement(react_router_dom_1.Link, { key: player.id, to: 'player/' + player.roleString },
                 React.createElement("button", { className: "btn btn-secondary btn-sm m-2" }, player.name));
         })));
     };

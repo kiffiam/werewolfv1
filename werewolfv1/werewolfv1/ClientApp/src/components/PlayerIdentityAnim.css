@@ -1,0 +1,11 @@
+﻿body {
+
+}
+
+img {
+    margin: 5px 5px 5px 5px;
+    vertical-align:central;
+    height: 100%;
+    width:100%;
+    resize:both;
+}

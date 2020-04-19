@@ -43,7 +43,7 @@ export const actionCreators = {
             fetch(`player/${id}`)
                 .then(response => response.json() as Promise<Player>)
                 .then(data => {
-                    dispatch({ type: 'CLICK_PLAYER', player: data, id: id });
+                    dispatch({ type: 'CLICK_PLAYER', player: data, id: id});
                 });
         }
     }
@@ -66,11 +66,6 @@ export const reducer: Reducer<PlayerState> = (state: PlayerState | undefined, in
             return {
                 player: action.player,
                 id: action.player.id
-                /*
-                id: action.player.id,
-                name: action.player.name,
-                alive: action.player.alive,
-                roleString:action.player.roleString*/
             };
         default:
             return state;

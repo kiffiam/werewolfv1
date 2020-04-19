@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import * as PlayerStore from '../store/Player';
 import { NavLink } from 'reactstrap';
 import { routerActions } from 'connected-react-router';
+import { link } from 'fs';
 
 // At runtime, Redux will merge together...
 type PlayerProps =
@@ -50,7 +51,7 @@ class PlayerList extends React.PureComponent<PlayerProps> {
         
     }*/
 
-    public render() {
+    /*public render() {
         return (
             <React.Fragment>
                 {this.props.players.map((player: PlayersStore.Player) =>
@@ -62,6 +63,23 @@ class PlayerList extends React.PureComponent<PlayerProps> {
                         </button>
                     </Link>
                     )}
+            </React.Fragment>
+        );
+
+    }*/
+
+    public render() {
+        return (
+            <React.Fragment>
+                {this.props.players.map((player: PlayersStore.Player) =>
+                    <Link key={player.id} to={'player/' + player.roleString}>
+                        <button
+                            className="btn btn-secondary btn-sm m-2"
+                        >
+                            {player.name}
+                        </button>
+                    </Link>
+                )}
             </React.Fragment>
         );
 

@@ -31,11 +31,6 @@ exports.reducer = function (state, incomingAction) {
             return {
                 player: action.player,
                 id: action.player.id
-                /*
-                id: action.player.id,
-                name: action.player.name,
-                alive: action.player.alive,
-                roleString:action.player.roleString*/
             };
         default:
             return state;

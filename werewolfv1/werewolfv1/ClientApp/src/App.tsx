@@ -7,6 +7,7 @@ import FetchData from './components/FetchData';
 import './custom.css'
 import PlayerList from './components/PlayerList';
 import PlayerIdentity from './components/PlayerIdentity';
+import PlayerIdentityAnim from './components/PlayerIdentityAnim';
 
 export default () => (
     <Layout>
@@ -14,6 +15,6 @@ export default () => (
         <Route path='/counter' component={Counter} />
         <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
         <Route path='/playerlist' component={PlayerList} />
-        <Route path='/player/:id' component={PlayerIdentity} />
+        <Route path='/player/:roleString' component={PlayerIdentityAnim} />
     </Layout>
 );
